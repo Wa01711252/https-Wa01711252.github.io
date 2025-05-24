@@ -104,15 +104,15 @@ header h1 {
 
 /* メインコンテンツのコンテナ */
 main {
-    max-width: 1400px; /* 全体の幅を広げる。これにより左右に十分なスペースを確保 */
-    margin: 2rem auto;
-    padding: 0 1rem;
-    display: flex; /* mainをflexコンテナにする */
-    flex-wrap: nowrap; /* 要素を折り返さないように変更 */
-    gap: 2.5rem; /* セクション間の隙間 */
-    flex-grow: 1; /* 残りのスペースを埋める */
-    justify-content: flex-end; /* 右端に寄せる */
-    align-items: flex-start; /* 上揃え */
+    display: flex;
+    /* justify-content: flex-end; */ /* ★この行は削除またはコメントアウト★ */
+    justify-content: center; /* ★変更: コンテンツ全体を中央寄せに (任意だが推奨) ★ */
+    align-items: flex-start; /* ★追加: 上部揃えに (コンテンツの高さが異なる場合) ★ */
+    gap: 2.5rem;
+    padding: 2.5rem;
+    max-width: 1200px;
+    margin: 20px auto;
+    flex-wrap: wrap;
 }
 
 /* 各セクションのスタイル */
@@ -134,9 +134,14 @@ section {
 
 /* レビューリストセクションのスタイル */
 #review-list, #liked-review-list { /* いいねリストにも適用 */
-    order: 1; /* 左側に配置 */
-    flex-grow: 1; /* レビューリストは残りのスペースを埋めるように伸びる */
-    flex-basis: calc(100% - 450px - 2.5rem); /* フォームの幅とギャップを引いた残りのスペースを基本幅とする */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    /* flex-grow: 1; */ /* ★この行は削除またはコメントアウト★ */
+    /* flex-basis: 700px; */ /* ★この行は削除またはコメントアウト★ */
+    min-width: 600px; /* ★変更: レビューリストの最小幅を確保★ */
+    flex: 1 1 auto; /* ★追加: 柔軟な幅設定 (grow, shrink, basis) ★ */
 }
 
 
@@ -206,7 +211,7 @@ button[type="submit"]:hover {
     border-radius: 5px; /* 少し角丸に */
     padding: 1rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 影のオフセットとぼかしを調整 */
-    transform: rotate(calc(var(--rotation-offset) * 1deg)); /* JavaScriptで回転させるためのプレースホルダー */
+    /*transform: rotate(calc(var(--rotation-offset) * 1deg)); */ /* JavaScriptで回転させるためのプレースホルダー */
     transition: transform 0.1s ease-out; /* ホバー時のアニメーション */
     position: relative; /* 子要素の配置のため */
     min-height: 150px; /* 付箋の最小高さ */
@@ -381,5 +386,69 @@ footer {
     #reviews-container,
     #liked-reviews-container { /* いいねリストにも適用 */
         grid-template-columns: 1fr; /* さらに狭い画面では1列にする */
+    }
+}
+
+/* 広告セクションのスタイル */
+#advertisement-section {
+    margin-top: 0; /* ★変更: main の align-items: flex-start; に合わせる★ */
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    /* margin-left: 2.5rem; */ /* ★この行は削除またはコメントアウト (gapで対応) ★ */
+    flex: 0 0 auto; /* ★追加: 伸縮せず、指定した幅を維持★ */
+}
+
+#advertisement-section h2 {
+    color: #34495e;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.ad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 336px;
+    height: 280px;
+    margin: 0 auto;
+    overflow: hidden; /* ★これがはみ出しを隠す役割を果たすはずです★ */
+}
+
+/* レスポンシブ対応の調整 */
+@media (max-width: 1200px) {
+    main {
+        flex-direction: column; /* 縦並び */
+        align-items: center; /* 中央揃え */
+        padding: 1rem; /* パディングを調整 */
+    }
+
+    #review-list {
+        min-width: unset; /* 最小幅を解除 */
+        width: 100%; /* 全幅に */
+        margin-bottom: 1.5rem; /* 下にスペース */
+    }
+
+    #advertisement-section {
+        order: 3;
+        margin-top: 1.5rem;
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #advertisement-section h2 {
+        text-align: center;
+    }
+
+    .ad-container {
+        width: 336px;
+        height: 280px;
+        margin: 0 auto;
     }
 }
