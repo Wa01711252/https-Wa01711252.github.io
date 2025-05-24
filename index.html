@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIレビュー掲示板</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>AIレビュー掲示板</h1>
+        <button class="hamburger-menu-toggle" aria-label="メニューを開く">
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+        </button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">トップページ</a></li>
+                <li><a href="liked-reviews.html">いいねしたレビューを見る</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="review-form">
+            <h2>新しいレビューを投稿</h2>
+            <form id="post-review-form">
+                <div class="form-group">
+                    <label for="review-title">タイトル:</label>
+                    <input type="text" id="review-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="review-content">レビュー内容:</label>
+                    <textarea id="review-content" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>付箋の色:</label>
+                    <div id="color-picker" style="display: flex; gap: 10px;">
+                        <input type="radio" id="color1" name="sticker-color" value="#A8DDA8" checked>
+                        <label for="color1" style="background-color: #A8DDA8; width: 30px; height: 30px; border-radius: 5px; cursor: pointer;"></label>
 
+                        <input type="radio" id="color2" name="sticker-color" value="#FFFACD">
+                        <label for="color2" style="background-color: #FFFACD; width: 30px; height: 30px; border-radius: 5px; cursor: pointer;"></label>
+
+                        <input type="radio" id="color3" name="sticker-color" value="#ADD8E6">
+                        <label for="color3" style="background-color: #ADD8E6; width: 30px; height: 30px; border-radius: 5px; cursor: pointer;"></label>
+
+                        <input type="radio" id="color4" name="sticker-color" value="#FFDAB9">
+                        <label for="color4" style="background-color: #FFDAB9; width: 30px; height: 30px; border-radius: 5px; cursor: pointer;"></label>
+                    </div>
+                </div>
+                <button type="submit">投稿</button>
+            </form>
+        </section>
+
+        <section id="review-list">
+            <h2>最新のレビュー</h2>
+            <div id="reviews-container">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AIレビュー掲示板</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
