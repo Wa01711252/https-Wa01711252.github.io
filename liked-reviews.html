@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIレビュー掲示板 - いいねしたレビュー</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>AIレビュー掲示板 - いいねしたレビュー</h1>
+        <button class="hamburger-menu-toggle" aria-label="メニューを開く">
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+        </button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">トップページ</a></li>
+                <li><a href="liked-reviews.html">いいねしたレビューを見る</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="liked-review-list">
+            <h2>あなたが「いいね」したレビュー</h2>
+            <div id="liked-reviews-container">
+                </div>
+            <p id="no-liked-reviews" style="text-align: center; margin-top: 2rem; display: none;">まだ「いいね」したレビューはありません。</p>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2024 AIレビュー掲示板</p>
+    </footer>
+
+    <script src="liked-reviews.js"></script>
+</body>
+</html>
